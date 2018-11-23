@@ -1,10 +1,10 @@
 class UndoManager:
-    def __init__(self):
+    def __init__(self, limit=0, callback=None):
         self.commands = []
         self.index = -1
-        self.limit = 2
+        self.limit = limit
         self.isExecuting = False
-        self.callback = None
+        self.callback = callback
     
     def execute(self, command, action):
         if not command or not callable(command[action]):
